@@ -1,0 +1,28 @@
+{
+  "name": "online-compiler",
+  "version": "1.0.0",
+  "description": "Compile your riot tags to javascript online",
+  "main": "index.html",
+  "scripts": {
+    "test": "eslint ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riot/online-compiler.git"
+  },
+  "keywords": [
+    "riot",
+    "tags",
+    "compiler"
+  ],
+  "author": "Gianluca Guarini <gianluca.guarini@gmail.com> (http://gianlucaguarini.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/riot/online-compiler/issues"
+  },
+  "homepage": "https://github.com/riot/online-compiler#readme",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-riot": "^1.0.0"
+  }
+}
