@@ -5,7 +5,7 @@
 
 Compile your riot tags to javascript online
 
-http://riotjs.com/online-compiler
+http://riot.js.org/online-compiler
 
 [travis-image]:https://img.shields.io/travis/riot/online-compiler.svg?style=flat-square
 [travis-url]:https://travis-ci.org/riot/online-compiler
