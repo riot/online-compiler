@@ -1,81 +1,30 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <script src="https://rawgit.com/riot/riot/master/riot%2Bcompiler.min.js"></script>
-        <title>Riot JS Tag Compiler</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <compiler></compiler>
+  <head>
+    <title>Riot.js Online Compiler</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <script src="https://rawgit.com/riot/riot/master/riot%2Bcompiler.min.js"></script>
+    <script src="https://pagecdn.io/lib/ace/1.4.5/ace.js" integrity="sha256-5Xkhn3k/1rbXB+Q/DX/2RuAtaB4dRRyQvMs83prFjpM=" crossorigin="anonymous"></script>
+    <style>
+      html {
+        box-sizing: border-box;
+      }
+      *, *:before, *:after {
+        box-sizing: inherit;
+      }
+    </style>
 
-        <script type='riot/tag'>
-          <compiler>
-            <main>
-              <h1>Riot JS Tag Compiler</h1>
-              <textarea ref='input'><my-tag></my-tag></textarea>
-              <textarea ref='output' placeholder='output'>{ result }</textarea>
-              <button onclick={ compile }>compile</button>
-              <small>Made with <a href='http://riot.js.org'>riot.js</a></small>
-            </main>
+  </head>
+  <body>
+    <compiler></compiler>
+    <script type='riot' src="compiler.riot"></script>
 
-            compile() {
-              this.result = riot.compile(this.refs.input.value)
-            }
-
-            <style>
-              main {
-                margin-left: 10%;
-                margin-right: 10%;
-                padding-bottom: 6px;
-                font-family: sans-serif;
-              }
-
-              textarea {
-                height: 300px;
-                padding: 10px;
-                width: 100%;
-                box-sizing: border-box;
-                border: none;
-                min-width: 100px;
-                margin-bottom: 10px;
-                height: 200px;
-                background: #F9F9F9;
-              }
-
-              h1 {
-                color:white;
-                background: #FF0044;
-                padding:20px;
-              }
-
-              button {
-                background: #4CAF50;
-                border: none;
-                text-transform: uppercase;
-                color: white;
-                padding: 10px 15px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                font-size: 18px;
-              }
-
-              small {
-                width: 100%;
-                margin: 10px 0;
-                display: inline-block;
-              }
-
-              small a {
-                color: #FF0044;
-              }
-            </style>
-          </compiler>
-        </script>
-
-        <script>
-          riot.mount('compiler')
-        </script>
-    </body>
+    <script>
+      riot.compile().then(() => {
+        riot.mount('compiler')
+      })
+    </script>
+  </body>
 </html>

@@ -1,0 +1,104 @@
+<compiler>
+  <main>
+    <header>
+      <h1>Riot.js Online Compiler</h1>
+      <button onclick={ compile }>compile</button>
+    </header>
+    <div class="editors">
+      <div class='input'>&lt;my-tag&gt;
+  &lt;p&gt;Hello&lt;/p&gt;
+&lt;/my-tag&gt;</div>
+      <div class='output'></div>
+    </div>
+    <footer>
+      <small>Made with <a href='http://riot.js.org'>Riot.js</a></small>
+    </footer>
+  </main>
+
+  <script>
+    export default {
+      state: {
+        result: ''
+      },
+      compile(event) {
+        this.output.setValue(
+          riot.compileFromString(this.input.getValue()).code
+        )
+      },
+      onMounted() {
+        this.input = ace.edit(this.$('.input'));
+        this.input.setTheme('ace/theme/github');
+        this.input.session.setMode('ace/mode/html');
+
+        this.output = ace.edit(this.$('.output'))
+        this.output.setTheme('ace/theme/github');
+        this.output.session.setMode('ace/mode/javascript');
+      }
+    }
+  </script>
+
+  <style>
+    main {
+      display: flex;
+      height: 100vh;
+      flex-direction: column;
+      margin-left: 0;
+      margin-right: 0;
+      padding-bottom: 6px;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    }
+
+    .editors {
+      display: flex;
+      flex: 1 1 100%;
+    }
+
+    .input,
+    .output {
+      margin-bottom: 1.2rem;
+      width: 50%;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      background: #fb0d48;
+      padding: 1rem 1.2rem;
+    }
+
+    h1 {
+      color:white;
+      margin: 0;
+    }
+
+    button {
+      background: #222;
+      border: none;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 0.4rem;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    footer {
+      margin: auto 0 0;
+    }
+
+    small {
+      width: 100%;
+      padding: 0.6rem 1.2rem;
+      display: inline-block;
+      text-align: right;
+    }
+
+    small a {
+      color: #fb0d48;
+    }
+  </style>
+</compiler>
