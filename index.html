@@ -5,8 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
-    <script src="https://rawgit.com/riot/riot/master/riot%2Bcompiler.min.js"></script>
-    <script src="https://pagecdn.io/lib/ace/1.4.5/ace.js" integrity="sha256-5Xkhn3k/1rbXB+Q/DX/2RuAtaB4dRRyQvMs83prFjpM=" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/riot/riot.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.8.1/ace.js" integrity="sha512-qqjLKA1tYKWxtpKReCrmE8DNYVa+/gNzzeJ6SZaTi+3J+KdTXUlS3AZtcPydvb0rXWtdwE4/KCS4RjfMGeil6g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src='https://unpkg.com/@riotjs/compiler/dist/compiler.js'></script>
     <style>
       html {
         box-sizing: border-box;
@@ -18,13 +19,11 @@
 
   </head>
   <body>
-    <compiler></compiler>
-    <script type='riot' src="compiler.riot"></script>
+    <main id='app'></main>
+    <script type='module'>
+      import Compiler from './compiler.js'
 
-    <script>
-      riot.compile().then(() => {
-        riot.mount('compiler')
-      })
+      riot.component(Compiler)(document.getElementById('app'))
     </script>
   </body>
 </html>
